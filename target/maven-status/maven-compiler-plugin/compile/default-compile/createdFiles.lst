@@ -1,0 +1,5 @@
+io\fabric8\quickstarts\errors\InvalidFileNameException.class
+io\fabric8\quickstarts\errors\File.class
+io\fabric8\quickstarts\errors\CXF_Rest.class
+io\fabric8\quickstarts\errors\RenameFile.class
+io\fabric8\quickstarts\errors\ServiceRenameFile.class

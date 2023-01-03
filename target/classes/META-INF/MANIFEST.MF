@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1672747724420
+Build-Jdk: 1.8.0_202
+Built-By: Mujahed.Kharasani
+Bundle-Description: Error handling with Camel
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.html
+Bundle-ManifestVersion: 2
+Bundle-Name: JBoss Fuse Quickstart: camel-errorhandler
+Bundle-SymbolicName: org.jboss.quickstarts.fuse.beginner-camel-errorhand
+ ler
+Bundle-Version: 6.2.1.redhat-084
+Created-By: Apache Maven Bundle Plugin
+Export-Package: io.fabric8.quickstarts.errors;uses:="org.slf4j,javax.ws.
+ rs,javax.ws.rs.core,javax.xml.bind.annotation";version="6.2.1.redhat-08
+ 4"
+Import-Package: javax.ws.rs;version="[2.0,3)",javax.ws.rs.core;version="
+ [2.0,3)",javax.xml.bind.annotation,org.osgi.service.blueprint;version="
+ [1.0.0,2.0.0)",org.slf4j;version="[1.7,2)"
+Tool: Bnd-1.50.0

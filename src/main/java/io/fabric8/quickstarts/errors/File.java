@@ -1,2 +1,26 @@
-package io.fabric8.quickstarts.errors;public class File {
+package io.fabric8.quickstarts.errors;
+
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "File")
+public class File {
+    private Integer id;
+    private String Name;
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return Name;
+    }
 }

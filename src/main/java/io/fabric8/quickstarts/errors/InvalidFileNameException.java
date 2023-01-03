@@ -1,10 +1,10 @@
 package io.fabric8.quickstarts.errors;
 
-public class FileErrorException extends Exception{
+public class InvalidFileNameException extends Exception{
 
-    public FileErrorException() {
+    public InvalidFileNameException() {
     }
-    public FileErrorException(String message) {
+    public InvalidFileNameException(String message) {
         super(message);
     }
 }
