@@ -1,7 +1,8 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1672747724420
+Bnd-LastModified: 1672918429544
 Build-Jdk: 1.8.0_202
 Built-By: Mujahed.Kharasani
+Bundle-ClassPath: .,json-simple-1.1.1.jar,gson-2.8.5.jar
 Bundle-Description: Error handling with Camel
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.html
 Bundle-ManifestVersion: 2
@@ -10,10 +11,14 @@ Bundle-SymbolicName: org.jboss.quickstarts.fuse.beginner-camel-errorhand
  ler
 Bundle-Version: 6.2.1.redhat-084
 Created-By: Apache Maven Bundle Plugin
-Export-Package: io.fabric8.quickstarts.errors;uses:="org.slf4j,javax.ws.
- rs,javax.ws.rs.core,javax.xml.bind.annotation";version="6.2.1.redhat-08
- 4"
-Import-Package: javax.ws.rs;version="[2.0,3)",javax.ws.rs.core;version="
- [2.0,3)",javax.xml.bind.annotation,org.osgi.service.blueprint;version="
- [1.0.0,2.0.0)",org.slf4j;version="[1.7,2)"
+Embed-Dependency: groupId=com.googlecode.json-simple;artifactId=json-sim
+ ple;scope=compile,groupId=com.google.code.gson;artifactId=gson;scope=co
+ mpile
+Embedded-Artifacts: json-simple-1.1.1.jar;g="com.googlecode.json-simple"
+ ;a="json-simple";v="1.1.1",gson-2.8.5.jar;g="com.google.code.gson";a="g
+ son";v="2.8.5"
+Import-Package: com.sun.org.apache.xml.internal.utils,javax.ws.rs;versio
+ n="[2.0,3)",javax.ws.rs.core;version="[2.0,3)",javax.xml.bind,javax.xml
+ .bind.annotation,org.apache.camel;version="[2.15,3)",org.osgi.service.b
+ lueprint;version="[1.0.0,2.0.0)",org.slf4j;version="[1.7,2)"
 Tool: Bnd-1.50.0

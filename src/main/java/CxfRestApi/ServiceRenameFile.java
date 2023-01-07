@@ -1,9 +1,9 @@
-package io.fabric8.quickstarts.errors;
+package CxfRestApi;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-@Path("/fileservice")
+@Path("/FileMove/")
 public interface ServiceRenameFile {
 
     @POST
@@ -12,9 +12,9 @@ public interface ServiceRenameFile {
     @Produces(MediaType.APPLICATION_JSON)
     public String rename() throws Exception;
 
-
-    @GET
-    @Path("/FileRename/{filename}")
+    @POST
+    @Path("/FileRename/sendFile")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getmethod(@PathParam("filename") String FileName) throws Exception;
+    public String getmethod(@QueryParam("FileName") String FileName) throws Exception;
+
 }

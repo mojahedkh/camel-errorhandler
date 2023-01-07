@@ -1,4 +1,4 @@
-package io.fabric8.quickstarts.errors;
+package CxfRestApi;
 
 
 import javax.xml.bind.annotation.XmlRootElement;

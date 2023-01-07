@@ -1,7 +1,6 @@
-package io.fabric8.quickstarts.errors;
+package CxfRestApi;
 
 
-import org.apache.camel.Exchange;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,9 +23,9 @@ public class CXF_Rest {
     @GET
     @Path("GetFileName/{filename}")
     public String getFileName(@PathParam("filename") String FileName) throws Exception {
-        log.info ( FileName.length()+"---");
-        if( FileName.length() <=1){
-            throw new InvalidFileNameException();
+
+        if( FileName.length()<=1){
+            throw new InvalidFileNameException("hjh");
         }
         return FileName;
     }
