@@ -1,5 +1,6 @@
-package CxfRestApi;
+package CxfRestApi.beans;
 
+import CxfRestApi.Exception.InvalidFileNameException;
 import org.apache.camel.Exchange;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +10,7 @@ import java.util.Date;
 
 public class RenameFile {
     Logger log = LoggerFactory.getLogger(RenameFile.class);
-    public void RenameFileFromTo(Exchange exchange) throws InvalidFileNameException{
+    public void RenameFileFromTo(Exchange exchange) throws InvalidFileNameException {
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yy");
         String sysDate = formatter.format(date);

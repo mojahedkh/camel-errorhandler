@@ -1,5 +1,5 @@
 
-package CxfRestApi.beans;
+package CxfRestApi.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;

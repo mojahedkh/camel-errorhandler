@@ -1,7 +1,7 @@
 package CxfRestApi.service;
 
 
-import CxfRestApi.beans.FileMoveRequest;
+import CxfRestApi.model.FileMoveRequest;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;

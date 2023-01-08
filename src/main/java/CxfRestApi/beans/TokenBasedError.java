@@ -1,4 +1,4 @@
-package CxfRestApi;
+package CxfRestApi.beans;
 
 import org.apache.camel.Exchange;
 

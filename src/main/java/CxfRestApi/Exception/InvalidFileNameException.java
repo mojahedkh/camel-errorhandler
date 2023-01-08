@@ -1,4 +1,4 @@
-package CxfRestApi;
+package CxfRestApi.Exception;
 
 public class InvalidFileNameException extends Exception{
 

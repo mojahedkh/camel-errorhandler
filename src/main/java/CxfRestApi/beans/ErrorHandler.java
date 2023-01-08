@@ -1,5 +1,7 @@
-package CxfRestApi;
+package CxfRestApi.beans;
 
+import CxfRestApi.Exception.FileNotFoundException;
+import CxfRestApi.Exception.InvalidFileNameException;
 import org.apache.camel.Exchange;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,11 +24,11 @@ public class ErrorHandler {
 
     public void checkFileIfNotExsist(Exchange exchange) throws FileNotFoundException {
         String message = exchange.getIn().getBody(String.class);
-        for (String name : ProcessorFiles.fileName){
+        for (String name : AddToList.fileName){
             log.info("fileName content "+ name);
         }
 
-        if (ProcessorFiles.fileName.contains(message)==false) {
+        if (AddToList.fileName.contains(message)==false) {
             exchange.getIn().setBody("No file with this name exists");
             exchange.getIn().setHeader("ErrorType", ErrorHandler.FileNotFoundError);
             throw new FileNotFoundException("File name does not contain in the directory");

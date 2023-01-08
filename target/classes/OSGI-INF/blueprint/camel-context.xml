@@ -19,10 +19,10 @@
     <!--End Rest Servers Endpoint-->
 
     <!--Beans-->
-    <bean id="RenameFile" class="CxfRestApi.RenameFile"/>
-    <bean id="ErrorHandler" class="CxfRestApi.ErrorHandler"/>
-    <bean id="GenerateToken" class="CxfRestApi.TokenBasedError"/>
-    <bean id="ProcessorFiles" class="CxfRestApi.ProcessorFiles"/>
+    <bean id="RenameFile" class="CxfRestApi.beans.RenameFile"/>
+    <bean id="ErrorHandler" class="CxfRestApi.beans.ErrorHandler"/>
+    <bean id="GenerateToken" class="CxfRestApi.beans.TokenBasedError"/>
+    <bean id="ProcessorFiles" class="CxfRestApi.beans.ProcessorFiles"/>
     <!--End Beans -->
 
 
@@ -30,12 +30,21 @@
                   xmlns:order="http://fabric8.com/examples/order/v7"
                   id="rest-context">
 
-        <route id="SendFileToSource">
-            <from uri="cxfrs://bean://fileRestService"/>
-            <log loggingLevel="Info" message="body request : ${body}"/>
-            <log loggingLevel="Info" message="header request : ${headers}"/>
+                <route id="ReadingFromDirectory">
+                    <from uri="file:CXF_TEST/files/?noop=true" />
+                    <setHeader headerName="fileName">
+                        <simple> ${file:name.noext} </simple>
+                    </setHeader>
+                    <process ref="ProcessorFiles" />
+                    <log message=" hello ${body} " />
+                    <to uri="file:CXF_TEST/?fileName=output.txt" />
+                </route>
 
-        </route>
+                <route id="SendFileToSource">
+                    <from uri="cxfrs://bean://fileRestService"/>
+                    <log loggingLevel="INFO" message="body request : ${body}"/>
+                    <log loggingLevel="INFO" message="header request : ${headers}"/>
+                </route>
 
 
     </camelContext>

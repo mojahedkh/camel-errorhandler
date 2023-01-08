@@ -1,4 +1,4 @@
-package CxfRestApi.beans;
+package CxfRestApi.model;
 
 
 import com.google.gson.annotations.SerializedName;
@@ -7,9 +7,7 @@ public class FileMoveRequest {
     @SerializedName("fileName")
     private String fileName;
 
-
     public FileMoveRequest() {
-
     }
 
     public FileMoveRequest(String fileName) {
