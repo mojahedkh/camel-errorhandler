@@ -223,26 +223,17 @@
             <version>2.7.0</version>
         </dependency>
 
-
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-jaxb-annotations</artifactId>
             <version>2.7.0</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.projectlombok</groupId>-->
-<!--            <artifactId>lombok</artifactId>-->
-<!--            <version>1.16.18</version>-->
-<!--            <scope>compile</scope>-->
-<!--        </dependency>-->
-
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jdbc</artifactId>
             <version>3.19.0</version>
         </dependency>
-
     </dependencies>
 
     <build>

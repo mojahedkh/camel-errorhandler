@@ -11,11 +11,9 @@ import java.util.List;
 public class AddToList implements Processor {
     public static List<String> fileName;
     Logger log = LoggerFactory.getLogger(RenameFile.class);
-
     public AddToList() {
         fileName = new ArrayList<>();
     }
-
     @Override
     public void process(Exchange exchange) throws Exception {
         String fileNameFromHeader = exchange.getIn().getHeader("fileName", String.class);

@@ -16,33 +16,15 @@ public class FileMoveResponse {
     public String getResponseCode() {
         return mResponseCode;
     }
-
     public String getResponseMessage() {
         return mResponseMessage;
     }
+    public void setmResponseCode(String mResponseCode) {
+        this.mResponseCode = mResponseCode;
+    }
 
-    public static class Builder {
-
-        private String mResponseCode;
-        private String mResponseMessage;
-
-        public FileMoveResponse.Builder withResponseCode(String responseCode) {
-            mResponseCode = responseCode;
-            return this;
-        }
-
-        public FileMoveResponse.Builder withResponseMessage(String responseMessage) {
-            mResponseMessage = responseMessage;
-            return this;
-        }
-
-        public FileMoveResponse build() {
-            FileMoveResponse fileMoveResponse = new FileMoveResponse();
-            fileMoveResponse.mResponseCode = mResponseCode;
-            fileMoveResponse.mResponseMessage = mResponseMessage;
-            return fileMoveResponse;
-        }
-
+    public void setmResponseMessage(String mResponseMessage) {
+        this.mResponseMessage = mResponseMessage;
     }
 
     @Override

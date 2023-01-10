@@ -23,17 +23,19 @@
     <bean id="GenerateToken" class="CxfRestApi.beans.TokenBasedError"/>
     <bean id="AddToList" class="CxfRestApi.beans.AddToList"/>
     <bean id="ProcessFile" class="CxfRestApi.beans.ProcessFile"/>
+    <bean id="ProcessResponce" class="CxfRestApi.beans.ProcessResponce"/>
+
     <!--End Beans -->
 
     <!--DataSourse camel JDBC -->
 
-<!--    <bean id="DataStore" class="org.apache.commons.dbcp.BasicDataSource" >-->
-<!--        <property name="driverClassName" value="org.apache.camel.component.jdbc" />-->
-<!--        <property name="url" value="jdbc:mysql://localhost:3306/job"/>-->
-<!--        <property name="username" value="root" />-->
-<!--        <property name="password" value="root" />-->
-<!--    </bean>-->
-<!--    &lt;!&ndash;&ndash;&gt;-->
+    <!--    <bean id="DataStore" class="org.apache.commons.dbcp.BasicDataSource" >-->
+    <!--        <property name="driverClassName" value="org.apache.camel.component.jdbc" />-->
+    <!--        <property name="url" value="jdbc:mysql://localhost:3306/job"/>-->
+    <!--        <property name="username" value="root" />-->
+    <!--        <property name="password" value="root" />-->
+    <!--    </bean>-->
+    <!--    &lt;!&ndash;&ndash;&gt;-->
     <camelContext xmlns="http://camel.apache.org/schema/blueprint"
                   xmlns:order="http://fabric8.com/examples/order/v7"
                   id="rest-context">
@@ -45,7 +47,6 @@
             </handled>
             <log message=" Exception handling ${body} ,  ${header.ErrorType}"/>
             <bean ref="GenerateToken" method="generateTokenToFileName"/>
-
             <recipientList>
                 <simple>file:CXF_TEST/Errors/${header.ErrorType}/?fileName=${header.generateToken}.txt</simple>
             </recipientList>
@@ -56,11 +57,6 @@
             <setHeader headerName="fileName">
                 <simple>${file:name.noext}</simple>
             </setHeader>
-
-<!--            <setBody>-->
-<!--                <simple> insert into file_job (id,name) values(11,${header.fileName}); </simple>-->
-<!--            </setBody>-->
-
             <process ref="AddToList"/>
             <log message=" hello ${body} "/>
             <to uri="file:CXF_TEST/output?fileExist=Append"/>
@@ -75,11 +71,12 @@
             <to uri="direct:SendFileToRename"/>
         </route>
 
-        <route id="RequestFileFromSource">
+        <route id="SendFileToRename">
             <from uri="direct:SendFileToRename"/>
             <log message="Recived File from  (SendFileToSource) route , Request body :- ${body} "/>
             <to uri="bean:RenameFile?method=RenameFileFromTo"/>
             <to uri="file:CXF_TEST/files/?fileName=${body}.txt"/>
+            <process ref="ProcessResponce" />
         </route>
 
     </camelContext>

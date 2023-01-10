@@ -2,12 +2,12 @@ CxfRestApi\model\FileMoveResponse.class
 CxfRestApi\service\FileService.class
 CxfRestApi\Exception\FileNotFoundException.class
 CxfRestApi\beans\ProcessFile.class
+CxfRestApi\beans\ProcessResponce.class
 CxfRestApi\constant\Constants$Loggers.class
 CxfRestApi\constant\Constants$Messages.class
 CxfRestApi\beans\TokenBasedError.class
 CxfRestApi\beans\AddToList.class
 CxfRestApi\beans\RenameFile.class
-CxfRestApi\model\FileMoveResponse$Builder.class
 CxfRestApi\model\FileMoveRequest.class
 CxfRestApi\constant\Constants.class
 CxfRestApi\Exception\InvalidFileNameException.class

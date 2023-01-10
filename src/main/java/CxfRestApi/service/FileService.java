@@ -13,5 +13,6 @@ public interface FileService {
     @Path("/fileMove")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String moveFile(FileMoveRequest fileName) throws Exception;
+    public String moveFile(String fileName) throws Exception;
+
 }
