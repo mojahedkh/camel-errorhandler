@@ -22,9 +22,9 @@ public class ProcessFile implements Processor {
     public void process(Exchange exchange) throws Exception {
         String message = exchange.getIn().getBody(String.class);
         message = Constants.ProcessingMessage(message);
-        //set body to message from Request
-        exchange.getIn().setBody(message);
 
+        //Set body to message from Request
+        exchange.getIn().setBody(message);
         Constants.Loggers.setClassName(ProcessFile.class.getName());
         Constants.Loggers.log.info(message);
 

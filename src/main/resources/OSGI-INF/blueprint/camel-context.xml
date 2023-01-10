@@ -75,8 +75,7 @@
             <from uri="direct:SendFileToRename"/>
             <log message="Recived File from  (SendFileToSource) route , Request body :- ${body} "/>
             <to uri="bean:RenameFile?method=RenameFileFromTo"/>
-            <to uri="file:CXF_TEST/files/?fileName=${body}.txt"/>
-            <process ref="ProcessResponce" />
+            <to uri="file:CXF_TEST/files/?fileName=${header.FileName}.txt"/>
         </route>
 
     </camelContext>

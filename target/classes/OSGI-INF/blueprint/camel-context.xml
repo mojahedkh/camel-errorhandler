@@ -47,7 +47,6 @@
             </handled>
             <log message=" Exception handling ${body} ,  ${header.ErrorType}"/>
             <bean ref="GenerateToken" method="generateTokenToFileName"/>
-
             <recipientList>
                 <simple>file:CXF_TEST/Errors/${header.ErrorType}/?fileName=${header.generateToken}.txt</simple>
             </recipientList>
@@ -60,6 +59,9 @@
             </setHeader>
             <process ref="AddToList"/>
             <log message=" hello ${body} "/>
+            <marshal>
+                <json library="Gson" />
+            </marshal>
             <to uri="file:CXF_TEST/output?fileExist=Append"/>
         </route>
 
@@ -76,8 +78,7 @@
             <from uri="direct:SendFileToRename"/>
             <log message="Recived File from  (SendFileToSource) route , Request body :- ${body} "/>
             <to uri="bean:RenameFile?method=RenameFileFromTo"/>
-            <to uri="file:CXF_TEST/files/?fileName=${body}.txt"/>
-            <process ref="ProcessResponce" />
+            <to uri="file:CXF_TEST/files/?fileName=${header.FileName}.txt"/>
         </route>
 
     </camelContext>

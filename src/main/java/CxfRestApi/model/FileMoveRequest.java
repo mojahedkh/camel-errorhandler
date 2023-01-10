@@ -2,7 +2,10 @@ package CxfRestApi.model;
 
 
 import com.google.gson.annotations.SerializedName;
-public class FileMoveRequest {
+
+import java.io.Serializable;
+
+public class FileMoveRequest implements Serializable {
     @SerializedName("fileName")
     private String fileName;
     public FileMoveRequest() {
